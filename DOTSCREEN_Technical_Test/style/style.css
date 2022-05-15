@@ -1,0 +1,100 @@
+:root {
+	--cell-size: 100px;
+}
+
+p, span{
+    font-size: 18px;
+}
+
+.gameContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.board {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(3, auto)
+}
+
+.d-none{
+    display: none!important;
+}
+
+.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+/* remove border for edges */
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) {
+	border-top: none;
+}
+
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) {
+	border-left: none;
+}
+
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) {
+	border-right: none;
+}
+
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+	border-bottom: none;
+}
+
+.cell.x, .cell.circle {
+	cursor: not-allowed;
+}
+
+.timer{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.player{
+    position:relative;
+}
+
+.currentPlayer{
+    position: absolute;
+    top: 0;
+    left: -19px;
+    color: green;
+}
+
+.popup{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    position: absolute;
+    top: 114px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.closePopup{
+    cursor: pointer;
+}
+
+@media(max-width: 500px){
+    .gameContainer {
+        flex-direction: column;
+       
+    }
+    .scoreContainer{
+        margin-top: 100px;
+    }
+}
